@@ -2,7 +2,7 @@
 
 <p align="center">
 <img src=".github/main.png"></img>
-<img src=".github/generated.png"></img>
+<img src=".github/generated2.png"></img>
 </p>
 
 # TRY IT 🚀
