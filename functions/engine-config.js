@@ -1,4 +1,9 @@
 export default [
+    {
+    "value": "comment",
+    "data": [],
+    "matching": ["//"]
+  },
   {
     "value": "m",
     "data": [],
@@ -89,7 +94,7 @@ export default [
   {
     "value": "fps",
     "data": [],
-    "matching": ["fps_"]
+    "matching": ["fps_", "developer"]
   },
   {
     "value": "net",
@@ -102,9 +107,9 @@ export default [
     "matching": ["bob"]
   },
   {
-    "value": "comment",
+    "value": "settings",
     "data": [],
-    "matching": ["//"]
+    "matching": ["closeonbuy"]
   },
   {
     "value": "unknown",

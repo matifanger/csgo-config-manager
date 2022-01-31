@@ -56,6 +56,9 @@ const regex = {
 
 import cfg from "./engine-config.js"
 var config_container = cfg
+var unknown_commands = []
+
+var completed_config = ``
 
 // {
 //     "value": "hud",
@@ -63,20 +66,27 @@ var config_container = cfg
 //     "matching": ["hud", "radar"]
 // },
 
+function create_file() {
+    // console.log(completed_config)
+}
+
+
 
 function check_line(line) {
-    // Then
-    config_container.forEach((obj) => {
-
+    let found = false
+    // debugger
+    config_container.every((obj) => {
         if (obj.matching.some( v => line.includes(v) )) {
             obj.data.push(line)
-            return 0
+            found = true
+            return true
         }
-        else {
-            obj.data.push(line)
-        }
-
+        return true
     })
+    if (!found) {
+        unknown_commands.push(line)
+        return true
+    }
 }
 
 
@@ -85,10 +95,12 @@ function fill_config_container(file) {
     allLines.forEach((line) => {
         check_line(line)
     })
+    create_file()
 }
 
 
 export default function edit_config(file) {
     fill_config_container(file)
     console.log('check', config_container)
+    console.log('check', unknown_commands)
 }
