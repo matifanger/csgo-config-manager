@@ -5,13 +5,15 @@
       <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
         <Title />
         <p class="text-base md:text-lg">
-          Thanks for testing my app! <a href="www.feedback.com" class="underline">Feedback me.</a>
+          Thanks for using my app! <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSc0v4zGWxBpN7c9xOqRjGDfRn1bxuxzDQq_qhUgEEAv0fc6jw/viewform" class="underline">Feedback me.</a>
         </p>
+
+    <p class="mt-1">
+    <strong class="rounded bg-green-500 border border-green-500 text-white">TIP</strong> You should test your FPS with your original config in this <a target="_blank" class="underline" href="https://steamcommunity.com/sharedfiles/filedetails/?l=spanish&id=500334237">map</a>
+      to see if really exists any improvement, and then try the new one.
+    </p>
       </div>
-        
     </div>
-
-
     
     <div class="w-4/5 md:w-3/6 mx-auto items-center justify-center">
         <div class="flex flex-col items-center gap-2">
@@ -25,7 +27,7 @@
 </button>
         </span>
 
-            <textarea v-model="message" @click="doCopy" id="description" class=" overflow-hidden shadow-blue border border-solid border-blue-500 cursor-pointer
+            <textarea v-model="config" @click="doCopy" id="description" class=" overflow-hidden shadow-blue border border-solid border-blue-500 cursor-pointer
             w-full 
             h-80 
             text-gray-400 
@@ -358,9 +360,17 @@ echo "##############################################################"
     export default {
         data() {
             return {
-                message: 'Copy These Text',
                 copyState: 'COPY CONFIG',
+                config: '',
             }
+        },
+        mounted() {
+          this.config = ''
+          if (!this.$store.state.config_generated) {
+            this.$router.push('/')
+          } else {
+            this.config = this.$store.state.config_generated
+          }
         },
         methods: {
             showCopied() {
@@ -371,7 +381,7 @@ echo "##############################################################"
             
             },
             doCopy: function () {
-                this.$copyText(this.message).then(function (e) {
+                this.$copyText(this.config).then(function (e) {
                 console.log(e.text)
                 }, function (e) {
                 alert('An error happened!')

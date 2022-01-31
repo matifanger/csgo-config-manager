@@ -97,21 +97,21 @@ export default {
     };
   },
   methods: {
-    loadTextFromFile(ev) {
+    async loadTextFromFile(ev) {
       this.loading = true;
       let file = ev.target.files[0];
 
-      let fileReader = new FileReader();
-      fileReader.readAsText(file);
+      const data = await file.text()
 
-      fileReader.onload = (event) => {
-        let fileAsText = event.target.result;
-        // console.log(fileAsText);
-        const what = editConfig(fileAsText)
-        console.log(what)
-      };
+      console.log('oldconfig',data)
+
+      const newConfig = await editConfig(data)
+      
+      console.log(newConfig)
+
+      this.$store.commit('config_generated_mutate', newConfig)
+      this.$router.push('/config')
     },
-
   },
 };
 </script>

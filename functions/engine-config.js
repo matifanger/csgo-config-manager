@@ -1,11 +1,21 @@
 export default [
-    {
-    "value": "comment",
+  //   {
+  //   "value": "comment",
+  //   "data": [],
+  //   "matching": ["//"]
+  // },
+  {
+    "value": "rate",
     "data": [],
-    "matching": ["//"]
+    "matching": ["cl_cmdrate", "cl_updaterate", "rate"]
   },
   {
-    "value": "m",
+    "value": "interp",
+    "data": [],
+    "matching": ["cl_interp", " cl_lagcompensation"]
+  },
+  {
+    "value": "mouse",
     "data": [],
     "matching": ["m_", "sensitivity"]
   },
@@ -15,19 +25,9 @@ export default [
     "matching": ["alias"]
   },
   {
-    "value": "rate",
-    "data": [],
-    "matching": ["cl_cmdrate", "cl_updaterate", "rate"]
-  },
-  {
     "value": "hud",
     "data": [],
     "matching": ["hud_", "radar"]
-  },
-  {
-    "value": "interp",
-    "data": [],
-    "matching": ["cl_interp", " cl_lagcompensation"]
   },
   {
     "value": "cl",
