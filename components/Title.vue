@@ -21,14 +21,7 @@
 </div>
 </template>
 
-<script>
-    export default {
-        
-    }
-</script>
-
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap');
 .title-gradient {
   background: linear-gradient(to right, hsl(83, 100%, 56%), hsl(216, 100%, 55%));
   background-clip: text;

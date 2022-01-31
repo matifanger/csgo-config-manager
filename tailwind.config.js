@@ -9,7 +9,6 @@ module.exports = {
               },
             fontFamily: {
               sans: ['Sen', 'sans-serif'],
-              serif: ['Roboto', 'sans-serif'],
             },
         }
     }
